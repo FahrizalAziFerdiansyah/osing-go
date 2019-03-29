@@ -95,31 +95,10 @@
 		<div class="container">
 				<div class="col-md-12 ">
 						<div class="col-md-12">
-				<label style="color: black; font-size: 23px">Cek Lokasi Anda</label><hr> 
-				<p id="tampilkan"></p>
-				<button class="btn btn-info pull-left" onclick="getLocation()">Cek dah!</button><br><br>
-				<div id="mapcanvas" ></div>
-		</div><br><br>
-
-            <div class="col-md-12" style="margin-top: 20px">
-              <div class="form-group">
-                <label style="color: black;font-size: 23px">Pilih Lokasi Tujuan </label><br><hr>
-                <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">Alabama</option>
-                  <option>Alaska</option>
-                  <option>California</option>
-                  <option>Delaware</option>
-                  <option>Tennessee</option>
-                  <option>Texas</option>
-                  <option>Washington</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-2">
-            	<div class="form-group">
-            		<button class="btn" style="color: black">Pilih</button>
-            	</div>
-            </div>
+					<br>	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.9363691840053!2d114.36778306961061!3d-8.209154171787533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x31d460b221f93b17!2sKantor+Bank+Sampah!5e0!3m2!1sid!2sid!4v1553870794539!5m2!1sid!2sid" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></br>
+				 
+				
+		
 				</div>
 
 			</div>
