@@ -2,15 +2,13 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4 col-md-offset-4">
-            <img src="img/logo-logo.png" width="72" height="72" />
+            <!--img src="img/logo-logo.png" width="72" height="72" /-->
             <h4 class="white">Sistem Informasi Geografis Jasa Web</h4>
-          <h3 class="white">Indonesia</h3>
           <ul class="list-inline">
             <li><a href="" class="link-footer">Beranda</a></li>
-            <li><a href="" class="link-footer">Petunjuk Penggunaan</a></li>
             <li><a href="" class="link-footer">Tentang</a></li>
           </ul>
-          <h5 class="white">Copyright &copy; Sofyan (Juniordev) 2014</h5>
+          <h5 class="white">Copyright &copy; Team Osing-Go 2019</h5>
           </div>
         </div>
       </div>
@@ -25,9 +23,8 @@
         <h4 class="modal-title" id="myModalLabel">About</h4>
       </div>
       <div class="modal-body">
-        <h4>SISTEM INFORMASI GEOGRAFIS PENYEDIA JASA WEB DI INDONESIA BERBASIS WEBGIS</h4>
-        <p>Program ini dibuat oleh Sofyan (Juniordev) untuk Tugas Praktikum GIS 2014.</p>
-        <p>Diharapkan program ini memberikan manfaat</p>
+        <h4></h4>
+        <p>
       </div>
     </div>
   </div>

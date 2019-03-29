@@ -18,11 +18,11 @@
           <div class="head-depan tengah">
             <div class="row">
               <div class="col-md-1">
-                <img class="img-responsive margin-b10" src="img/logo-logo.png" width="100" height="100" alt="Logo SMA Karangan" />
+                <!--img class="img-responsive margin-b10" src="img/logo-logo.png" width="100" height="100" alt="Logo SMA Karangan" /-->
               </div>
               <div class="col-md-11">
-                <h1 class="judul-head">Sistem Informasi Geografis Jasa Web</h1>
-                <p><i class="fa fa-map-marker fa-fw"></i> Sistem Informasi yang memuat data jasa-jasa penyedia dan developer website di Indonesia</p>
+                <h1 class="judul-head">Sistem Informasi Geografis</h1>
+                <p><i class="fa fa-map-marker fa-fw"></i> Sistem Informasi yang memuat data jasa-jasa penyedia informasi wisata, toko oleh-oleh dan bank sampah di Banyuwangi</p>
               </div>
             </div>
             <hr class="hr1 margin-b-10" />
