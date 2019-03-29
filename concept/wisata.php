@@ -42,6 +42,7 @@
 	<link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
     <style>
       /* Always set the map height explicitly to define the size of the div
