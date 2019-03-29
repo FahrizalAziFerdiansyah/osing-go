@@ -147,25 +147,25 @@
           	<div>
           	<div class="col-md-3 animate-box" data-animate-effect="fadeIn"><!--Kategori-->
 					<div class="fh5co-staff"><a href="">
-						<img src="images/person1.jpg" >
+						<img src="images/wisata air.png" >
 						<h3>Wisata Air</h3></a>
 					</div>
 				</div>
 				<div class="col-md-3 animate-box" data-animate-effect="fadeIn"><!--Kategori-->
 					<div class="fh5co-staff">
-						<img src="images/person1.jpg" >
+						<img src="images/taman.png" >
 						<h3>Taman</h3>
 					</div>
 				</div>
 				<div class="col-md-3 animate-box" data-animate-effect="fadeIn"><!--Kategori-->
 					<div class="fh5co-staff"><a href="">
-						<img src="images/person1.jpg" >
+						<img src="images/pegunungan.png" >
 						<h3>Pegunungan</h3></a>
 					</div>
 				</div>
 				<div class="col-md-3 animate-box" data-animate-effect="fadeIn"><!--Kategori-->
 					<div class="fh5co-staff"><a href="">
-						<img src="images/person1.jpg" >
+						<img src="images/wisata kuliner.png" >
 						<h3>Wisata Kuliner</h3></a>
 					</div>
 				</div>
