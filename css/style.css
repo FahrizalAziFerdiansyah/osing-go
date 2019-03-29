@@ -337,7 +337,7 @@ i[class~="fa-"] {
 	padding: 10px;
 }
 .footer1 {
-	background: url("../img/footer-bg.png");
+	background: url("../img/wisata.png");
 	padding: 30px;
 	text-align: center;
 	box-shadow: 0px -2px 4px #ccc, 0 -2px 8px 0px #666;
@@ -387,6 +387,8 @@ i[class~="fa-"] {
 .head-depan {
 	padding: 20px;
 	min-height: 20px;
+	background: url("../img/wisata.png")
+
 }
 .white {
 	color: white;
