@@ -24,13 +24,16 @@
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
+	
 
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
 	<link rel="stylesheet" href="css/icomoon.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 
@@ -42,7 +45,8 @@
 	<link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	
+
 
     <style>
       /* Always set the map height explicitly to define the size of the div
@@ -193,6 +197,7 @@ include_once "koneksi.php"; ?>
             <div class="panel-heading centered">
               <h2 class="panel-title"><strong> </strong></h2>
             </div>
+      
             <div class="panel-body">
               <table class="table table-bordered table-striped table-admin" style="color: #000000">
               <thead>
@@ -222,7 +227,7 @@ include_once "koneksi.php"; ?>
                 <td class="ctr">
                   <div class="btn-group">
                     <a target="_blank" href="detail.php?id=<?php echo $item->id_perusahaan; ?>" rel="tooltip" data-original-title="Lihat File" data-placement="top" class="btn btn-primary">
-                    <i class="fa fa-map-marker"> </i> Detail dan Lokasi</a>&nbsp;
+                    <i class="fa fa-map-marker"> </i>Lokasi</a>&nbsp;
                   </div>
                 </td>
               </tr>
@@ -235,6 +240,7 @@ include_once "koneksi.php"; ?>
               </tbody>
             </table>
             </div>
+            
             </div>
           </div>
         </div>
@@ -339,16 +345,8 @@ include_once "koneksi.php"; ?>
 	<script src="js/jquery.stellar.min.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
-	<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- DataTables -->
-<script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="bower_components/fastclick/lib/fastclick.js"></script>
+
+
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkE6oJvsyX4sRAw0QTt3R_gJClY0NtIFQ&libraries=places&callback=initMap"
         async defer></script>
