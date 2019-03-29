@@ -26,7 +26,7 @@ foreach($obj->results as $item){
 }
 
 $title = "Detail dan Lokasi : ".$titles;
-include_once "header.php"; ?>
+ ?>
 
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC5Jrp9PtHe0WapppUzxbIpMDWMAcV3qE4"></script>
 
@@ -58,7 +58,7 @@ function initialize() {
       position: myLatlng,
       map: map,
       title: 'Maps Info',
-      icon:'img/marker.png'
+      icon:'images/marker.png'
   });
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.open(map,marker);
@@ -111,6 +111,10 @@ google.maps.event.addDomListener(window, 'load', initialize);
                  <td><h4><?php echo $hp ?></h4></td>
                </tr>
                <tr>
+                 <td>No HP</td>
+                 <td><h4><?php echo $lat ?></h4></td>
+               </tr>
+               <tr>
                  <td>Website</td>
                  <td><h4><a href="http://<?php echo $web ?>"><?php echo $web ?></a></h4></td>
                </tr>
@@ -123,4 +127,3 @@ google.maps.event.addDomListener(window, 'load', initialize);
         </div>
       </div>
     </div>
-    <?php include_once "footer.php"; ?>

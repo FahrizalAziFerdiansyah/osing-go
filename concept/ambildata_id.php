@@ -1,6 +1,6 @@
 <?php
 include "koneksi.php";
-$Q = mysqli_query($mysqli,"SELECT * FROM jasaweb")or die(mysqli_error());
+$Q = mysqli_query($mysqli,"SELECT * FROM jasaweb where id_perusahaan=".$id)or die(mysqli_error());
 if($Q){
  $posts = array();
       if(mysqli_num_rows($Q))
@@ -9,8 +9,7 @@ if($Q){
                      $posts[] = $post;
              }
       }  
-      $data = json_encode(array('results'=>$posts));
-      echo $data;                     
+      $data = json_encode(array('results'=>$posts));             
 }
 
 ?>
