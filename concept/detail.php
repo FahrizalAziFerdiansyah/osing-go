@@ -235,29 +235,26 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </div>
 </div>
 	</div>
-
-
-
-<!--	
+	<?php
+$a='-8.3665615,114.1375462';
+$b='ambulu';
+?>
 	<div id="fh5co-started">
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<span>Let's work together</span>
-					<h2>Try this template for free</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-					<p><button type="submit" class="btn btn-default">Get In Touch</button></p>
+					<span></span>
+					<h2>Dapatkan Arah ke Tujuan</h2>
+					<p>Klik View Map di bawah ini untuk mendapatkan arah tujuan dan anda dapat melihat kondisi jalan yang menuju ke tujuan anda.</p>
+					<!--p><button type="submit" class="btn btn-default">Get In Touch</button></p-->
 				</div>
 			</div>
 		</div>
-  </div>
--->
-<?php
-$a='-8.3665615,114.1375462';
-$b='ambulu';
-?>
+	</div>
+	<iframe src='http://s3.tripgeo.com/dirmap/map.htm?from=<?php echo $a; ?>&to=<?php echo $b;?>&region=Indonesia&units=1&z=10&fi=1500&fs=10' width=100% height='1200' style='padding:20px' marginwidth='0' marginheight='0' frameborder='0' scrolling='no'></iframe>
 
-<iframe src='http://s3.tripgeo.com/dirmap/map.htm?from=<?php echo $a; ?>&to=<?php echo $b;?>&region=Indonesia&units=1' width='720' height='1200' style='padding:0px' marginwidth='0' marginheight='0' frameborder='0' scrolling='no'></iframe>
+
+<
 
 	<footer id="fh5co-footer" role="contentinfo">
 		<div class="container">
