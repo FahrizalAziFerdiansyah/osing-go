@@ -252,6 +252,12 @@ google.maps.event.addDomListener(window, 'load', initialize);
 		</div>
   </div>
 -->
+<?php
+$a='-8.3665615,114.1375462';
+$b='ambulu';
+?>
+
+<iframe src='http://s3.tripgeo.com/dirmap/map.htm?from=<?php echo $a; ?>&to=<?php echo $b;?>&region=Indonesia&units=1' width='720' height='1200' style='padding:0px' marginwidth='0' marginheight='0' frameborder='0' scrolling='no'></iframe>
 
 	<footer id="fh5co-footer" role="contentinfo">
 		<div class="container">
