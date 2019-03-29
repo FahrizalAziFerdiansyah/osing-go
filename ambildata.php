@@ -1,6 +1,7 @@
 <?php
 include "koneksi.php";
-$Q = mysqli_query($mysqli,"SELECT * FROM jasaweb")or die(mysqli_error());
+$s='Surabaya';
+
 if($Q){
  $posts = array();
       if(mysqli_num_rows($Q))
