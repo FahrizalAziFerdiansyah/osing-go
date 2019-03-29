@@ -207,7 +207,7 @@ include_once "koneksi.php"; ?>
               </thead>
               <tbody>
               <?php
-                $data = file_get_contents('http://localhost/osing-go/osing-go/concept/ambildata.php');
+                $data = file_get_contents('http://localhost/osing-go/concept/ambildata.php');
                 $no=1;
                 if(json_decode($data,true)){
                   $obj = json_decode($data);
@@ -221,7 +221,7 @@ include_once "koneksi.php"; ?>
                 <td><?php echo $item->website; ?></td>
                 <td class="ctr">
                   <div class="btn-group">
-                    <a target="_blank" href="detail.php?id=<?php echo $item->id_perusahaan; ?>" rel="tooltip" data-original-title="Lihat File" data-placement="top" class="btn btn-primary">
+                    <a target="_blank" href="../detail.php?id=<?php echo $item->id_perusahaan; ?>" rel="tooltip" data-original-title="Lihat File" data-placement="top" class="btn btn-primary">
                     <i class="fa fa-map-marker"> </i> Detail dan Lokasi</a>&nbsp;
                   </div>
                 </td>
