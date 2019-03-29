@@ -182,7 +182,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
               <h2 class="panel-title"><strong> - Detail - </strong></h4>
             </div>
             <div class="panel-body">
-             <table class="table">
+             <table class="table" style="color: #000000" >
+               
                <tr>
                  <th>Item</th>
                  <th>Detail</th>
