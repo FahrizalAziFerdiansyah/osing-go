@@ -1,33 +1,9 @@
-<?php
-include_once 'koneksi.php';
-
-$nim=$_GET['NIM'];
-$nama=$_GET['Nama_mahasiswa'];
-$jenis_kel=$_GET['Jenis_kel'];
-$alamat=$_GET['Alamat'];
-
-$query=mysqli_query($mysqli,"INSERT INTO mahasiswa(NIM,Nama_mahasiswa,Jenis_kel,Alamat) VALUES('$nim','$nama','$jenis_kel','$alamat')");
-
-$respose=array();
-if ($query)
-{
-  $respose['code']=1;
-  $respose['message']="Success! Data ditambahkan";  
-}
-else{
-  $respose['code']=0;
-  $respose['message']="Gagal! Data gagal ditambahkan";
-}
-
-echo json_encode($respose);
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | General Form Elements</title>
+  <title>AdminLTE 2 | Data Tables</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -36,6 +12,8 @@ echo json_encode($respose);
   <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="../../bower_components/Ionicons/css/ionicons.min.css">
+  <!-- DataTables -->
+  
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -50,14 +28,15 @@ echo json_encode($respose);
   <![endif]-->
 
   <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="../../index2.html" class="logo">
+    <a href="../../index.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
@@ -213,7 +192,8 @@ echo json_encode($respose);
                         <small class="pull-right">20%</small>
                       </h3>
                       <div class="progress xs">
-                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
+                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                           <span class="sr-only">20% Complete</span>
                         </div>
                       </div>
@@ -227,7 +207,8 @@ echo json_encode($respose);
                         <small class="pull-right">40%</small>
                       </h3>
                       <div class="progress xs">
-                        <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar"
+                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                           <span class="sr-only">40% Complete</span>
                         </div>
                       </div>
@@ -241,7 +222,8 @@ echo json_encode($respose);
                         <small class="pull-right">60%</small>
                       </h3>
                       <div class="progress xs">
-                        <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar"
+                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                           <span class="sr-only">60% Complete</span>
                         </div>
                       </div>
@@ -255,7 +237,8 @@ echo json_encode($respose);
                         <small class="pull-right">80%</small>
                       </h3>
                       <div class="progress xs">
-                        <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar"
+                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                           <span class="sr-only">80% Complete</span>
                         </div>
                       </div>
@@ -337,7 +320,7 @@ echo json_encode($respose);
       <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
+          <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                 </button>
               </span>
@@ -375,90 +358,13 @@ echo json_encode($respose);
           </ul>
         </li>
         <li>
-          <a href="../widgets.html">
-            <i class="fa fa-th"></i> <span>Widgets</span>
+          <a href="../data.html">
+            <i class="fa fa-th"></i> <span>Data</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>
             </span>
           </a>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>Charts</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="../charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-            <li><a href="../charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-            <li><a href="../charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-            <li><a href="../charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>UI Elements</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="../UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-            <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-            <li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-            <li><a href="../UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-            <li><a href="../UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-            <li><a href="../UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
-          </ul>
-        </li>
-        <li class="treeview active">
-          <a href="#">
-            <i class="fa fa-edit"></i> <span>Forms</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-            <li><a href="advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-            <li><a href="editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="../tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-            <li><a href="../tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="../calendar.html">
-            <i class="fa fa-calendar"></i> <span>Calendar</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
-              <small class="label pull-right bg-blue">17</small>
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="../mailbox/mailbox.html">
-            <i class="fa fa-envelope"></i> <span>Mailbox</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-yellow">12</small>
-              <small class="label pull-right bg-green">16</small>
-              <small class="label pull-right bg-red">5</small>
-            </span>
-          </a>
-        </li>
-      </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
@@ -468,128 +374,74 @@ echo json_encode($respose);
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        General Form Elements
-        <small>Preview</small>
+        Data Tables
+        <small>advanced tables</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Forms</a></li>
-        <li class="active">General Elements</li>
+        <li><a href="#">Tables</a></li>
+        <li class="active">Data tables</li>
       </ol>
     </section>
+<?php
+require'../../koneksi.php';
+$data=mysqli_query($mysqli,"SELECT * FROM pelanggan");
 
+?>
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <!-- left column -->
-                <!--/.col (left) -->
-        <!-- right column -->
-        <div class="col-md-12">
-          <!-- Horizontal Form -->
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Tambah Kecamatan</h3>
+        <div class="col-xs-12">
+          <!-- /.box -->
+
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Data Table With Full Features</h3>
             </div>
             <!-- /.box-header -->
-            <!-- form start -->
-            
-            <form class="form-horizontal">
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="nama_perusahaan" class="col-sm-2 control-label">Nama Tempat</label>
-
-                  <div class="col-md-10">
-                    <input type="nama_perusahaan" class="form-control" id="nama_tempat" placeholder="nama_tempat">
-                  </div>
-                </div>
-                    
-                      <label for="kategori" class="col-sm-2 control-label">Kategori</label>
-    
-                      <div class="col-sm-10">
-                        <input type="kategori" class="form-control" id="kategori" placeholder="kategori">
-                      </div>
-                    </div>
-                    
-                      <div class="box-body">
-                        <div class="form-group">
-                          <label for="website" class="col-sm-2 control-label">kategori2</label>
-        
-                          <div class="col-sm-10">
-                            <input type="website" class="form-control" id="kategori2" placeholder="kategori2">
-                          </div>
-                        </div>
-                        
-                          <div class="box-body">
-                            <div class="form-group">
-                              <label for="no_hp" class="col-sm-2 control-label">latitude</label>
-            
-                              <div class="col-sm-10">
-                                <input type="no_hp" class="form-control" id="lat" placeholder="lat">
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <label for="no_hp" class="col-sm-2 control-label">longitude</label>
-            
-                              <div class="col-sm-10">
-                                <input type="no_hp" class="form-control" id="long" placeholder="long">
-                              </div>
-                            </div>
-                            
-                              <div class="box-body">
-                                <div class="form-group">
-                                  <label for="alamat" class="col-sm-2 control-label">Alamat</label>
-                
-                                  <div class="col-sm-10">
-                                    <input type="alamat" class="form-control" id="alamat" placeholder="alamat">
-                                  </div>
-                                </div>
-                                
-                                  <div class="box-body">
-                                    <div class="form-group">
-                                      <label for="kota" class="col-sm-2 control-label">Daerah</label>
-                    
-                                      <div class="col-sm-10">
-                                        <input type="kota" class="form-control" id="daerah" placeholder="daerah">
-                                      </div>
-                                    </div>
-                                      
-                                        <div class="form-group">
-                                          <label for="provinsi" class="col-sm-2 control-label">Provinsi</label>
-                        
-                                          <div class="col-sm-10">
-                                            <input type="provinsi" class="form-control" id="provinsi" placeholder="provinsi">
-                                          </div>
-                                        </div>
-                <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
-                    <div class="checkbox">
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.box-body -->
-              <div class="box-footer">
-                <button type="submit" class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-info pull-right">Tambah</button>
-              </div>
-              <!-- /.box-footer -->
-            </form>
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Rendering engine</th>
+                  <th>Browser</th>
+                  <th>Platform(s)</th>
+                  <th>Engine version</th>
+                  <th>CSS grade</th>
+                  <th>Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+            <?php $i=1; ?>
+            <?php foreach ($data as $row):  ?>
+                <tr>
+                  <td><?= $i; ?></td>
+                <td><?= $row["no_rek"]; ?></td>
+                <td><?= $row["nama_pelanggan"]; ?></td>
+                 <td><?= $row["alamat"]; ?></td>
+                <td><?=  $row["kategori"]; ?></td>
+                 <td><a class='btn btn-danger' onclick='return confirm("Kirim montir sekarang juga?")' href='update.php?id_pelanggan=<?=$row['id_pelanggan'];?>'>Kirim</a></td>
+                </tr>
+                 <?php $i++;?>
+            <?php endforeach;?>
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>Rendering engine</th>
+                  <th>Browser</th>
+                  <th>Platform(s)</th>
+                  <th>Engine version</th>
+                  <th>CSS grade</th>
+                  <th>Aksi</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
           </div>
           <!-- /.box -->
-          <!-- general form elements disabled -->
-        
-          <!-- /.box -->
         </div>
-
- 
-          </div>
-          <!-- /.box -->
-          <!-- general form elements disabled -->
-        
-          <!-- /.box -->
-        </div>
-        <!--/.col (right) -->
+        <!-- /.col -->
       </div>
       <!-- /.row -->
     </section>
@@ -804,11 +656,30 @@ echo json_encode($respose);
 <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="../../bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="../../bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
 </body>
 </html>

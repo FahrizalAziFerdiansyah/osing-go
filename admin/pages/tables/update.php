@@ -1,25 +1,18 @@
 <?php
-include_once 'koneksi.php';
+include_once '../../koneksi.php';
 
-$nim=$_GET['NIM'];
-$nama=$_GET['Nama_mahasiswa'];
-$jenis_kel=$_GET['Jenis_kel'];
-$alamat=$_GET['Alamat'];
 
-$query=mysqli_query($mysqli,"INSERT INTO mahasiswa(NIM,Nama_mahasiswa,Jenis_kel,Alamat) VALUES('$nim','$nama','$jenis_kel','$alamat')");
+$id_pelanggan=$_GET['id_pelanggan'];
+$a=mysqli_query($mysqli,"SELECT * FROM pelanggan WHERE id_pelanggan='$id_pelanggan'");
 
-$respose=array();
-if ($query)
-{
-  $respose['code']=1;
-  $respose['message']="Success! Data ditambahkan";  
+while($row = mysqli_fetch_array($a))
+{ 
+  $no_rek = $row['no_rek'];
+  $id_pelanggan = $row['id_pelanggan'];
+  $nama_pelanggan = $row['nama_pelanggan'];
+  $alamat=$row['alamat'];
+  $kategori = $row['kategori'];
 }
-else{
-  $respose['code']=0;
-  $respose['message']="Gagal! Data gagal ditambahkan";
-}
-
-echo json_encode($respose);
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +34,57 @@ echo json_encode($respose);
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
+
+    <!-- Bootstrap stuff -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        top:  10px;
+
+        height: 300px;
+        width: 90%;
+        margin: 30px;
+        margin-right: 20px;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #ffff;
+        padding: 5px;
+        border: 1px solid #9999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        margin-left: -180px;
+        width: 350px;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+      }
+      #latlng {
+        
+      }
+    </style>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -488,111 +531,67 @@ echo json_encode($respose);
           <!-- Horizontal Form -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Tambah Kecamatan</h3>
+              <h3 class="box-title">Tambah Wisata</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
             
-            <form class="form-horizontal">
+            <form class="form-horizontal" method="post" >
               <div class="box-body">
+              <div class="col-md-6">
+              
                 <div class="form-group">
-                  <label for="nama_perusahaan" class="col-sm-2 control-label">Nama Tempat</label>
-
+                  <label for="nama_perusahaan" class="col-sm-2 control-label">Nama Pelanggan</label>
                   <div class="col-md-10">
-                    <input type="nama_perusahaan" class="form-control" id="nama_tempat" placeholder="nama_tempat">
+                    <input type="text" class="form-control"  name="lokasi1" value=<?php echo $nama_pelanggan;?> >
                   </div>
                 </div>
-                    
-                      <label for="kategori" class="col-sm-2 control-label">Kategori</label>
-    
-                      <div class="col-sm-10">
-                        <input type="kategori" class="form-control" id="kategori" placeholder="kategori">
-                      </div>
-                    </div>
-                    
-                      <div class="box-body">
-                        <div class="form-group">
-                          <label for="website" class="col-sm-2 control-label">kategori2</label>
-        
-                          <div class="col-sm-10">
-                            <input type="website" class="form-control" id="kategori2" placeholder="kategori2">
-                          </div>
-                        </div>
-                        
-                          <div class="box-body">
-                            <div class="form-group">
-                              <label for="no_hp" class="col-sm-2 control-label">latitude</label>
-            
-                              <div class="col-sm-10">
-                                <input type="no_hp" class="form-control" id="lat" placeholder="lat">
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <label for="no_hp" class="col-sm-2 control-label">longitude</label>
-            
-                              <div class="col-sm-10">
-                                <input type="no_hp" class="form-control" id="long" placeholder="long">
-                              </div>
-                            </div>
-                            
-                              <div class="box-body">
-                                <div class="form-group">
-                                  <label for="alamat" class="col-sm-2 control-label">Alamat</label>
-                
-                                  <div class="col-sm-10">
-                                    <input type="alamat" class="form-control" id="alamat" placeholder="alamat">
-                                  </div>
-                                </div>
-                                
-                                  <div class="box-body">
-                                    <div class="form-group">
-                                      <label for="kota" class="col-sm-2 control-label">Daerah</label>
-                    
-                                      <div class="col-sm-10">
-                                        <input type="kota" class="form-control" id="daerah" placeholder="daerah">
-                                      </div>
-                                    </div>
-                                      
-                                        <div class="form-group">
-                                          <label for="provinsi" class="col-sm-2 control-label">Provinsi</label>
-                        
-                                          <div class="col-sm-10">
-                                            <input type="provinsi" class="form-control" id="provinsi" placeholder="provinsi">
-                                          </div>
-                                        </div>
                 <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
-                    <div class="checkbox">
+                  <label for="nama_perusahaan" class="col-sm-2 control-label">No Rek</label>
+                  <div class="col-md-10">
+                    <input type="text" class="form-control"  name="lokasi1" value=<?php echo $no_rek;?> >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="nama_perusahaan" class="col-sm-2 control-label">Alamat</label>
+                  <div class="col-md-10"> 
+                    <input id="latlng" class="form-control" type="text" value=<?php echo $alamat;?>><br>
+                      <input id="submit" type="button" class="btn btn-info" value="Temukan Lokasi">
 
                     </div>
                   </div>
+                  <div class="box-body">
+                                            <button type="submit" name="tambah" class="btn btn-info ">Tambah</button>
+                                          </div>
+                                 
                 </div>
-              </div>
+                <div class="col-md-6">
+                <div class="form-group">
+                  <label for="nama_perusahaan" class="col-sm-2 control-label">Kategori</label>
+                  <div class="col-md-10">
+                    <input type="text" class="form-control"  name="lokasi1" value=<?php echo $kategori;?> >
+                  </div>
+                </div>
+                <div id="map"></div>
+             
+             </div>
+                     
+                      
+                                      </div>
+                                    
+                                    
+                                  </form>
+                               </div>
+                             </div>
               <!-- /.box-body -->
-              <div class="box-footer">
-                <button type="submit" class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-info pull-right">Tambah</button>
-              </div>
-              <!-- /.box-footer -->
-            </form>
-          </div>
           <!-- /.box -->
           <!-- general form elements disabled -->
         
-          <!-- /.box -->
-        </div>
+</div>
 
- 
-          </div>
-          <!-- /.box -->
-          <!-- general form elements disabled -->
-        
-          <!-- /.box -->
-        </div>
-        <!--/.col (right) -->
-      </div>
-      <!-- /.row -->
     </section>
+    
+
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -737,6 +736,47 @@ echo json_encode($respose);
               Some information about this general settings option
             </p>
           </div>
+                                <script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: {lat: -7.911716, lng: 113.805929}
+          
+        });
+        var geocoder = new google.maps.Geocoder;
+        var infowindow = new google.maps.InfoWindow;
+
+        document.getElementById('submit').addEventListener('click', function() {
+          geocodeLatLng(geocoder, map, infowindow);
+        });
+      }
+
+      function geocodeLatLng(geocoder, map, infowindow) {
+        var input = document.getElementById('latlng').value;
+        var latlngStr = input.split(',', 2);
+        var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
+        geocoder.geocode({'location': latlng}, function(results, status) {
+          if (status === 'OK') {
+            if (results[0]) {
+              map.setZoom(11);
+              var marker = new google.maps.Marker({
+                position: latlng,
+                map: map
+              });
+              infowindow.setContent(results[0].formatted_address);
+              infowindow.open(map, marker);
+            } else {
+              window.alert('No results found');
+            }
+          } else {
+            window.alert('Geocoder failed due to: ' + status);
+          }
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5Jrp9PtHe0WapppUzxbIpMDWMAcV3qE4&callback=initMap">
+    </script>
           <!-- /.form-group -->
 
           <div class="form-group">
@@ -801,14 +841,6 @@ echo json_encode($respose);
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="../../bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+
 </body>
 </html>

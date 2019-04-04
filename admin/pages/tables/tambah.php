@@ -1,25 +1,15 @@
 <?php
-include_once 'koneksi.php';
+include_once '../../koneksi.php';
 
-$nim=$_GET['NIM'];
-$nama=$_GET['Nama_mahasiswa'];
-$jenis_kel=$_GET['Jenis_kel'];
-$alamat=$_GET['Alamat'];
 
-$query=mysqli_query($mysqli,"INSERT INTO mahasiswa(NIM,Nama_mahasiswa,Jenis_kel,Alamat) VALUES('$nim','$nama','$jenis_kel','$alamat')");
-
-$respose=array();
-if ($query)
-{
-  $respose['code']=1;
-  $respose['message']="Success! Data ditambahkan";  
+if (isset($_POST['tambah'])){
+    $sql_add="INSERT INTO tempat(nama_tempat,lokasi,lat,lon,kategori,kategori_wisata,daerah,informasi,gambar) VALUES ("
+    ."'".$_POST['lokasi1']."','".$_POST['lokasi']."','".$_POST['lat']."','".$_POST['lon']."','".$_POST['kategori']."','".$_POST['kategori_wisata']."','".$_POST['daerah']."','".$_POST['informasi']."','".$_POST['gambar']."') ";
+    @mysqli_query($mysqli,$sql_add);
+    echo '
+    <script>alert("Barang ditambahkan !!!");window.location="tambah.php"</script>
+    ';
 }
-else{
-  $respose['code']=0;
-  $respose['message']="Gagal! Data gagal ditambahkan";
-}
-
-echo json_encode($respose);
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +31,16 @@ echo json_encode($respose);
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="../../plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <!-- Bootstrap stuff -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkE6oJvsyX4sRAw0QTt3R_gJClY0NtIFQ&libraries=places&callback=initMap"></script>
+    <script src="../../dist/locationpicker.jquery.min.js"></script>
+
+    <script src="../../src/angularLocationpicker.jquery.js"></script>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -488,111 +487,159 @@ echo json_encode($respose);
           <!-- Horizontal Form -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Tambah Kecamatan</h3>
+              <h3 class="box-title">Tambah Wisata</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
             
-            <form class="form-horizontal">
+            <form class="form-horizontal" method="post" >
               <div class="box-body">
+              <div class="col-md-6">
+              
                 <div class="form-group">
                   <label for="nama_perusahaan" class="col-sm-2 control-label">Nama Tempat</label>
 
                   <div class="col-md-10">
-                    <input type="nama_perusahaan" class="form-control" id="nama_tempat" placeholder="nama_tempat">
+                    <input type="text" class="form-control"  name="lokasi1" placeholder="nama_tempat">
                   </div>
                 </div>
-                    
-                      <label for="kategori" class="col-sm-2 control-label">Kategori</label>
-    
-                      <div class="col-sm-10">
-                        <input type="kategori" class="form-control" id="kategori" placeholder="kategori">
-                      </div>
-                    </div>
-                    
-                      <div class="box-body">
-                        <div class="form-group">
-                          <label for="website" class="col-sm-2 control-label">kategori2</label>
+             
+<div ng-app="locationpickerApp" ng-controller="locationpickerController">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Location:</label>
+
+        <div class="col-sm-10">
+            <input type="text" name="lokasi" class="form-control" id="us3-address"/>
+        </div>
+    </div>
+
+    <!--Map by element. Also it can be attribute-->
+    <locationpicker options="locationpickerOptions"></locationpicker>
+
+    <div class="clearfix">&nbsp;</div>
+         <div class="form-group">
         
-                          <div class="col-sm-10">
-                            <input type="website" class="form-control" id="kategori2" placeholder="kategori2">
-                          </div>
-                        </div>
-                        
-                          <div class="box-body">
-                            <div class="form-group">
-                              <label for="no_hp" class="col-sm-2 control-label">latitude</label>
-            
-                              <div class="col-sm-10">
-                                <input type="no_hp" class="form-control" id="lat" placeholder="lat">
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <label for="no_hp" class="col-sm-2 control-label">longitude</label>
-            
-                              <div class="col-sm-10">
-                                <input type="no_hp" class="form-control" id="long" placeholder="long">
-                              </div>
-                            </div>
-                            
-                              <div class="box-body">
-                                <div class="form-group">
-                                  <label for="alamat" class="col-sm-2 control-label">Alamat</label>
-                
-                                  <div class="col-sm-10">
-                                    <input type="alamat" class="form-control" id="alamat" placeholder="alamat">
-                                  </div>
+          <label class="col-sm-2 control-label">Latitude:</label>
+
+        <div class="col-sm-10">
+            <input type="text" name="lat" readonly="" class="form-control" id="us3-lat"/>
+        </div>
+      </div>
+        <div class="form-group">
+        <label class="col-sm-2 control-label">Longintude:</label>
+
+        <div class="col-sm-10">
+            <input type="text" name="lon" readonly="" class="form-control"  id="us3-lon"/>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+           
+             </div>             </div>
+                     
+                     
+                            <div class="col-md-6">
+                             
+                                <div class="form-group" style="margin-left: 5px">
+                                  <label for="alamat" class="col-sm-2 control-label">Kategori</label>
+                                    <div class="col-sm-10">
+                                  <select class="form-control select2" name="kategori" style="width: 100%;">
+                                  <option selected="selected">Pilih Kategori</option>
+                                  <option>Wisata</option>
+                                  <option>Oleh-oleh</option>
+                                  <option>Warung Makan</option>
+                                  
+                                </select>
                                 </div>
-                                
-                                  <div class="box-body">
-                                    <div class="form-group">
-                                      <label for="kota" class="col-sm-2 control-label">Daerah</label>
-                    
-                                      <div class="col-sm-10">
-                                        <input type="kota" class="form-control" id="daerah" placeholder="daerah">
+                              </div>
+
+                              <div class="form-group" style="margin-left: 5px">
+                                <label for="alamat" class="col-sm-2 control-label">Kategori</label>
+                                <div class="col-sm-10">
+                                <select class="form-control select2" name="kategori_wisata" style="width: 100%;">
+                                  <option selected="selected">Pilih Kategori Wsiata</option>
+                                  <option>Wisata Air</option>
+                                  <option>Taman</option>
+                                  <option>Pegunungan</option>
+                                  <option>Wisata Kuliner</option>
+                                  
+                                </select>
+                              </div>
+                              </div>
+
+                            
+                              <div class="form-group" style="margin-left: 5px">
+                                <label for="alamat" class="col-sm-2 control-label">Daerah</label>
+                                <div class="col-sm-10">
+                                <select class="form-control select2" name="daerah" style="width: 100%;">
+                                  <option selected="selected">Alabama</option>
+                                  <option>Alaska</option>
+                                  <option>California</option>
+                                  <option>Delaware</option>
+                                  <option>Tennessee</option>
+                                  <option>Texas</option>
+                                  <option>Washington</option>
+                                </select>
+                              </div>
+                              </div>
+                              <div class="form-group " style="margin-left: 5px">
+                                <label for="nama_perusahaan" class="col-sm-2 control-label">Informasi Detail</label>
+                                <div class="col-md-10">
+                                  <textarea name="informasi" class="textarea" placeholder="Place some text here"
+                                            style="width: 100%; height: 200px; font-size: 14px; border: 1px solid #dddddd;"></textarea>
+                              </div>
+                            </div>
+                            <div class="form-group" style="margin-left: 5px">
+                              <label class="col-sm-2 control-label">Foto</label>
+                              <div class="col-md-10">
+                              <input name="gambar" type="file" id="exampleInputFile"></div>
+                            </div>
+                           
+                            
+                      
+                                          
                                       </div>
                                     </div>
-                                      
-                                        <div class="form-group">
-                                          <label for="provinsi" class="col-sm-2 control-label">Provinsi</label>
-                        
-                                          <div class="col-sm-10">
-                                            <input type="provinsi" class="form-control" id="provinsi" placeholder="provinsi">
+                                    <div class="box-body">
+                                            <button type="submit" class="btn btn-default">Cancel</button>
+                                            <button type="submit" name="tambah" class="btn btn-info pull-right">Tambah</button>
                                           </div>
-                                        </div>
-                <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
-                    <div class="checkbox">
-
-                    </div>
-                  </div>
-                </div>
-              </div>
+                                 
+                                  </form>
+                               </div>
+                             </div>
               <!-- /.box-body -->
-              <div class="box-footer">
-                <button type="submit" class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-info pull-right">Tambah</button>
-              </div>
-              <!-- /.box-footer -->
-            </form>
-          </div>
           <!-- /.box -->
           <!-- general form elements disabled -->
         
-          <!-- /.box -->
-        </div>
+</div>
 
- 
-          </div>
-          <!-- /.box -->
-          <!-- general form elements disabled -->
-        
-          <!-- /.box -->
-        </div>
-        <!--/.col (right) -->
-      </div>
-      <!-- /.row -->
     </section>
+    
+<script>
+    angular.module('locationpickerApp', ['angular-jquery-locationpicker'])
+            .controller('locationpickerController', [
+                '$scope',
+                function ($scope) {
+                    $scope.locationpickerOptions = {
+                        location: {
+
+                            latitude: -8.21942950397902,
+                            longitude: 114.36885368758544
+                        },
+                        inputBinding: {
+                            latitudeInput: $('#us3-lat'),
+                            longitudeInput: $('#us3-lon'),
+                            radiusInput: $('#us3-radius'),
+                            locationNameInput: $('#us3-address')
+                        },
+                        radius: 100,
+                        enableAutocomplete: true
+                    };
+                }
+            ]);
+</script>
+
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -801,14 +848,6 @@ echo json_encode($respose);
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="../../bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+
 </body>
 </html>
