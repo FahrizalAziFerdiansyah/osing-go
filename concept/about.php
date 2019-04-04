@@ -81,7 +81,7 @@
 				<div class="col-md-7 text-left">
 					<div class="display-t">
 						<div class="display-tc animate-box" data-animate-effect="fadeInUp">
-							<h1 class="mb30" style="color: #2c3e50;"">Tentang Osing Go</h1>
+							<h1 class="mb30" style="color: #2c3e50;">Tentang Osing Go</h1>
 						</div>
 					</div>
 				</div>
@@ -89,64 +89,20 @@
 		</div>
 	</header>
 
-	
 
 	<div id="fh5co-team">
 		<div class="container">
 			<div class="row animate-box row-pb-md">
 				<div class="col-md-8 col-md-offset-2 text-left fh5co-heading">
-					<span>Productive Staff</span>
-					<h2>Meet Our Staff</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+					
+					<h2>Tentang Osing-Go</h2>
+					<p style="color: #000000">Suatu sistem informasi tentang pelayan yang memberikan informasi tentang suatu letak wilayah di Banyuwangi yang terfokuskan pada wisata, oleh-oleh, bank sampah, dan lain-lain.</p>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
-					<div class="fh5co-staff">
-						<img src="images/person1.jpg" alt="Free HTML5 Templates by gettemplates.co">
-						<h3>Jean Smith</h3>
-						<strong class="role">Web Designer</strong>
-						<p>Quos quia provident consequuntur culpa facere ratione maxime commodi voluptates id repellat velit eaque aspernatur expedita. Possimus itaque adipisci.</p>
-						<ul class="fh5co-social-icons">
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
-							<li><a href="#"><i class="icon-github"></i></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
-					<div class="fh5co-staff">
-						<img src="images/person2.jpg" alt="Free HTML5 Templates by gettemplates.co">
-						<h3>Hush Raven</h3>
-						<strong class="role">Front-end Developer</strong>
-						<p>Quos quia provident consequuntur culpa facere ratione maxime commodi voluptates id repellat velit eaque aspernatur expedita. Possimus itaque adipisci.</p>
-						<ul class="fh5co-social-icons">
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
-							<li><a href="#"><i class="icon-github"></i></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
-					<div class="fh5co-staff">
-						<img src="images/person3.jpg" alt="Free HTML5 Templates by gettemplates.co">
-						<h3>Alex King</h3>
-						<strong class="role">Back-end Developer</strong>
-						<p>Quos quia provident consequuntur culpa facere ratione maxime commodi voluptates id repellat velit eaque aspernatur expedita. Possimus itaque adipisci.</p>
-						<ul class="fh5co-social-icons">
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
-							<li><a href="#"><i class="icon-github"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			
 		</div>
 	</div>
-
+<!--
 	<div id="fh5co-testimonial" class="fh5co-bg-section">
 		<div class="container">
 			<div class="row animate-box row-pb-md">
@@ -194,24 +150,41 @@
 
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 
-
-	
 	<div id="fh5co-started">
 		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<span>Let's work together</span>
-					<h2>Try this template for free</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-					<p><button type="submit" class="btn btn-default">Get In Touch</button></p>
+		<div class="row">
+		<h2 style=text-align:center; style="color: #ffffff">Dinas Kebudayaan dan Pariwisata Banyuwangi</h2>
+				<div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
+					<div class="fh5co-staff">
+						<img src="images/phone.png" alt="Free HTML5 Templates by gettemplates.co">
+						<h3>Telefon</h3>
+						<strong class="role">(0333) 424172</strong>
+						<p></p>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
+					<div class="fh5co-staff">
+						<img src="images/mail.png" alt="Free HTML5 Templates by gettemplates.co">
+						<h3>Email</h3>
+						<a href= "mailto: info@banyuwangikab.go.id" strong class="role">info@banyuwangikab.go.id</strong>
+						<p></p>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
+					<div class="fh5co-staff">
+						<img src="images/pin.png" alt="Free HTML5 Templates by gettemplates.co">
+						<h3>Alamat</h3>
+						<strong class="role">Jl. Ahmad Yani No.100 Kab. Banyuwangi</strong>
+						<p></p>
+					
+					</div>
 				</div>
 			</div>
-		</div>
 	</div>
-
+</div>
 	<footer id="fh5co-footer" role="contentinfo">
 		<div class="container">
 			<div class="row row-pb-md">
@@ -250,7 +223,7 @@
 					</ul>
 				</div>
 			</div>
-
+</div>
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
 					<p>
@@ -271,6 +244,7 @@
 		</div>
 	</footer>
 	</div>
+
 
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
